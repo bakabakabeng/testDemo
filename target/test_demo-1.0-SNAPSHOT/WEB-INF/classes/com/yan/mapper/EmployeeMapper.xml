@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yan.mapper.EmployeeMapper">
+
+    <select id="queryById" resultType="employee">
+        select * from employee
+        <where>
+        <if test="id!=null">
+            id=#{id}
+        </if>
+    </where>
+
+    </select>
+
+    <insert id="add" parameterType="employee">
+        insert into employee(age,sex,emp_name,address) values(#{age},#{sex},#{empName},#{address})
+    </insert>
+
+    <update id="update" parameterType="employee">
+        update employee set age=#{age},sex=#{sex},emp_name=#{empName},address=#{address} where id=#{id}
+    </update>
+
+    <delete id="deleteById">
+        delete from employee where id=#{id}
+    </delete>
+
+</mapper>

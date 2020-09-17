@@ -7,9 +7,13 @@
   <!-- 定义全局变量 -->
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath:spring-*.xml</param-value>
+    <param-value>classpath:spring-service.xml;classpath:spring-mapper.xml</param-value>
   </context-param>
 
+  <!-- 启动监听器 -->
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
 
   <!--DispatchServlet-->
   <servlet>
